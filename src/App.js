@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { View } from './components/viewComponent';
+import { Add } from './components/addComponent';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { View } from './components/viewComponent';
 
 const App = () => {
 
@@ -10,20 +11,28 @@ const App = () => {
     { id: 2, name: 'John', surname: 'Snow'},
   ];
 
+  const [users, setUsers] = useState(usersData);
+
+  const addUser = user => {
+    user.id = users.length + 1;
+    setUsers([...users, user]);
+  }
+
     return (
       <div className="container">
-        <div class="row">
-          <div class="col-lg-12">
+        <div className="row">
+          <div className="col-lg-12">
             <h1>CRUD React App</h1>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-6">
+        <div className="row">
+          <div className="col-lg-6">
             <h2>Add new user</h2>
+            <Add addUser={addUser} />
           </div>
-          <div class="col-lg-6">
+          <div className="col-lg-6">
             <h2>View users</h2>
-            <View users={usersData} />
+            <View users={users} />
           </div>
         </div>
       </div>
