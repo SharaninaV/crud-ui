@@ -14,20 +14,7 @@ const App = () => {
         .then((res) => res.json())
         .then((result) => {setUsers(result); console.log(result)})
         .catch(console.log);
-  }, []);
-
-
-  const addUser = async(user) => {
-    const newUser = {data: user};
-    let response = await fetch('http://178.128.196.163:3000/api/records', {
-      method: 'PUT',
-      headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify(newUser)
-      });
-  }
-
+  });
 
     return (
       <div className="container">
@@ -39,7 +26,7 @@ const App = () => {
         <div className="row">
           <div className="col-lg-6">
             <h2>Add new user</h2>
-            <Add addUser={addUser} />
+            <Add />
           </div>
           <div className="col-lg-6">
             <h2>View users</h2>

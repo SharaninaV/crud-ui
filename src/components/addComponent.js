@@ -12,9 +12,20 @@ const Add = props => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		if (!user.name || !user.age) return;
-		props.addUser(user);
+		addUser(user);
 		setUser(initialFormState);
-	}
+	};
+
+	const addUser = async(user) => {
+   		const newUser = {data: user};
+    	let response = await fetch('http://178.128.196.163:3000/api/records', {
+      		method: 'PUT',
+      		headers: {
+          	'Content-Type': 'application/json;charset=utf-8'
+      		},
+      		body: JSON.stringify(newUser)
+     	});
+  	}
 
 	return (
 		<div className="container">
