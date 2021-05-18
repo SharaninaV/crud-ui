@@ -1,21 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { View } from './components/viewComponent';
 
-class App extends Component {
-  render() {
+const App = () => {
+
+      const usersData = [
+    { id: 1, name: 'James', surname: 'Bond'},
+    { id: 2, name: 'John', surname: 'Snow'},
+  ];
+
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div className="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>CRUD React App</h1>
+          </div>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div class="row">
+          <div class="col-lg-6">
+            <h2>Add new user</h2>
+          </div>
+          <div class="col-lg-6">
+            <h2>View users</h2>
+            <View users={usersData} />
+          </div>
+        </div>
       </div>
     );
   }
-}
 
-export default App;
+export { App };
