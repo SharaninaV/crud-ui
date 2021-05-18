@@ -17,9 +17,15 @@ const App = () => {
   }, []);
 
 
-  const addUser = user => {
-    const newUser = { _id : users.length + 1, data: user}
-    setUsers([...users, newUser]);
+  const addUser = async(user) => {
+    const newUser = {data: user};
+    let response = await fetch('http://178.128.196.163:3000/api/records', {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(newUser)
+      });
   }
 
 

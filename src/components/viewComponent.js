@@ -12,8 +12,8 @@ const View = props => (
       		{props.users.length > 0 ? (
        			props.users.map(user => (
         			<tr key={user._id}>
-         				<td>{user.data.name}</td>
-         				<td>{user.data.age}</td>
+         				<td>{user.data ? user.data.name : 'no data'}</td>
+         				<td>{user.data ? user.data.age : 'no data'}</td>
         			</tr>
         		))
        		) : (
