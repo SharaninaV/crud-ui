@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { View } from './components/viewComponent';
 import { Add } from './components/addComponent';
 import './App.css';
@@ -6,17 +7,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
 
-      const usersData = [
-    { id: 1, name: 'James', surname: 'Bond'},
-    { id: 2, name: 'John', surname: 'Snow'},
-  ];
+  const [users, setUsers] = useState([]);
 
-  const [users, setUsers] = useState(usersData);
+  useEffect(() => {
+    fetch('http://178.128.196.163:3000/api/records')
+        .then((res) => res.json())
+        .then((result) => {setUsers(result); console.log(result)})
+        .catch(console.log);
+  }, []);
+
 
   const addUser = user => {
-    user.id = users.length + 1;
-    setUsers([...users, user]);
+    const newUser = { _id : users.length + 1, data: user}
+    setUsers([...users, newUser]);
   }
+
 
     return (
       <div className="container">

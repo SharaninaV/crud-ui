@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Add = props => {
-	const initialFormState = { id: null, name: '', surname: ''};
+	const initialFormState = { id: null, name: '', age: ''};
 	const [user, setUser] = useState(initialFormState);
 
 	const handleInputChange = event => {
@@ -11,7 +11,7 @@ const Add = props => {
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		if (!user.name || !user.surname) return;
+		if (!user.name || !user.age) return;
 		props.addUser(user);
 		setUser(initialFormState);
 	}
@@ -33,13 +33,13 @@ const Add = props => {
 							/>
 						</div>
 						<div className="mb-3">
-							<label htmlFor="getSurname" className="form-label">Surname</label>
+							<label htmlFor="getAge" className="form-label">Age</label>
 							<input 
 							type="text" 
 							className="form-control" 
-							id="getSurname" 
-							name="surname"
-							value={user.surname}
+							id="getAge" 
+							name="age"
+							value={user.age}
 							onChange={handleInputChange}
 							/>
 						</div>

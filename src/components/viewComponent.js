@@ -5,15 +5,15 @@ const View = props => (
      	<thead>
       		<tr>
        			<th scope="col">Name</th>
-       			<th scope="col">Surname</th>
+       			<th scope="col">Age</th>
       		</tr>
      	</thead>
      	<tbody>
       		{props.users.length > 0 ? (
        			props.users.map(user => (
-        			<tr key={user.id}>
-         				<td>{user.name}</td>
-         				<td>{user.surname}</td>
+        			<tr key={user._id}>
+         				<td>{user.data.name}</td>
+         				<td>{user.data.age}</td>
         			</tr>
         		))
        		) : (
