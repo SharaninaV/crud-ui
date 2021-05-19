@@ -1,11 +1,15 @@
 import React from 'react';
+import { Delete } from './deleteComponent';
 
-const View = props => (
+const View = props => {
+
+return(
     <table className="table">
      	<thead>
       		<tr>
        			<th scope="col">Name</th>
        			<th scope="col">Age</th>
+            <th scope="col">Actions</th>
       		</tr>
      	</thead>
      	<tbody>
@@ -14,6 +18,9 @@ const View = props => (
         			<tr key={user._id}>
          				<td>{user.data ? user.data.name : 'no data'}</td>
          				<td>{user.data ? user.data.age : 'no data'}</td>
+                <td>
+                <Delete id={user._id} deleteUser={props.deleteUser}/>
+                </td>
         			</tr>
         		))
        		) : (
@@ -23,6 +30,7 @@ const View = props => (
        		)}
      	</tbody>
     </table>
-        )
+    )
+}
 
 export { View }

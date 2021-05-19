@@ -7,14 +7,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
 
-  const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState([]);
+    const [needRefresh, setNeedRefresh] = useState(false);
 
-  useEffect(() => {
-    fetch('http://178.128.196.163:3000/api/records')
-        .then((res) => res.json())
-        .then((result) => {setUsers(result); console.log(result)})
-        .catch(console.log);
-  });
+    useEffect(() => {
+      fetch('http://178.128.196.163:3000/api/records')
+      .then((res) => res.json())
+      .then((result) => setUsers(result))
+      .catch(console.log);
+    },[needRefresh]);
+
+
+    const needRefreshToggle = () => {
+      setNeedRefresh(!needRefresh)
+    }
+
+    const deleteUser = (id) => {
+      setUsers(users.filter(user => user._id !== id));
+    }
 
     return (
       <div className="container">
@@ -26,11 +36,11 @@ const App = () => {
         <div className="row">
           <div className="col-lg-6">
             <h2>Add new user</h2>
-            <Add />
+            <Add needRefreshToggle={needRefreshToggle}/>
           </div>
           <div className="col-lg-6">
             <h2>View users</h2>
-            <View users={users} />
+            <View users={users} deleteUser={deleteUser}/>
           </div>
         </div>
       </div>

@@ -25,6 +25,11 @@ const Add = props => {
       		},
       		body: JSON.stringify(newUser)
      	});
+     	if (response.ok) {
+     		props.needRefreshToggle();
+     	} else {
+     		console.log(response.status);
+     	}
   	}
 
 	return (
