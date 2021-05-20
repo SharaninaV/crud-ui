@@ -42,7 +42,6 @@ const Add = props => {
 							<input 
 							type="text" 
 							className="form-control" 
-							id="getName" 
 							name="name" 
 							value={user.name}
 							onChange={handleInputChange}
@@ -54,7 +53,6 @@ const Add = props => {
 							<input 
 							type="text" 
 							className="form-control" 
-							id="getAge" 
 							name="age"
 							value={user.age}
 							onChange={handleInputChange}

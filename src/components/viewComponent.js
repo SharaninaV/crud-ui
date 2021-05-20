@@ -1,10 +1,12 @@
 import React from 'react';
-import { Delete } from './deleteComponent';
+import { User } from './userComponent';
+
 
 const View = props => {
 
-return(
-    <table className="table">
+
+  return(
+    <table className="table table-hover align-middle">
      	<thead>
       		<tr>
        			<th scope="col">Name</th>
@@ -16,11 +18,7 @@ return(
       		{props.users.length > 0 ? (
        			props.users.map(user => (
         			<tr key={user._id}>
-         				<td>{user.data ? user.data.name : 'no data'}</td>
-         				<td>{user.data ? user.data.age : 'no data'}</td>
-                <td>
-                <Delete id={user._id} deleteUser={props.deleteUser}/>
-                </td>
+                <User id={user._id} data={user.data} deleteUser={props.deleteUser}/>
         			</tr>
         		))
        		) : (
@@ -30,7 +28,7 @@ return(
        		)}
      	</tbody>
     </table>
-    )
+  )
 }
 
 export { View }

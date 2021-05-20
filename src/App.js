@@ -34,13 +34,13 @@ const App = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-6">
+          <div className="col-lg-4 add">
             <h2>Add new user</h2>
             <Add needRefreshToggle={needRefreshToggle}/>
           </div>
-          <div className="col-lg-6">
+          <div className="col-lg-8">
             <h2>View users</h2>
-            <View users={users} deleteUser={deleteUser}/>
+            <View users={users} deleteUser={deleteUser} />
           </div>
         </div>
       </div>
