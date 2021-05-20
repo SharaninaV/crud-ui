@@ -34,12 +34,12 @@ const App = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-4 add">
-            <h2>Add new user</h2>
+          <div className="col-lg-5 add">
+            <h2>Добавить нового пользователя</h2>
             <Add needRefreshToggle={needRefreshToggle}/>
           </div>
-          <div className="col-lg-8">
-            <h2>View users</h2>
+          <div className="col-lg-7">
+            <h2>Список пользователей</h2>
             <View users={users} deleteUser={deleteUser} />
           </div>
         </div>

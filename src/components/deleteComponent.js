@@ -17,7 +17,7 @@ const Delete = props => {
 	}
 
 return(
-	<button className="btn btn-danger" onClick={handleDelete}>Delete</button>
+	<button className="btn btn-danger" onClick={handleDelete}>Удалить</button>
 )};
 
 export { Delete };

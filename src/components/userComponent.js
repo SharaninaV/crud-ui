@@ -24,7 +24,7 @@ return (
             type="text" 
             name="name"
             disabled={!isEditing}
-            value={props.data ? user.name : 'no data'} 
+            value={props.data ? user.name : 'Нет данных'} 
             onChange={handleInputChange}/>
           </td>
          	<td>
@@ -32,7 +32,7 @@ return (
             type="text"
             name="age"
             disabled={!isEditing}
-            value={props.data ? user.age : 'no data'} 
+            value={props.data ? user.age : 'Нет данных'} 
             onChange={handleInputChange}/>
           </td>
           <td>

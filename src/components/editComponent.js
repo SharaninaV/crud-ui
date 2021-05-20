@@ -9,7 +9,7 @@ const Edit = props => {
 
 	return (
 
-	 <button className="btn btn-info" onClick={handleEdit}>Edit</button>
+	 <button className="btn btn-info" onClick={handleEdit}>Изменить</button>
 	)};
 
 export { Edit };
